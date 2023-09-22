@@ -2940,7 +2940,7 @@ agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),l
 							<Value Class="CodeValue">
 								<Code><![CDATA[traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);
 distanceDriven += agent.getDistanceDriven();
-traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven + ")");]]></Code>
+traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3993,7 +3993,7 @@ agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),l
 							<Value Class="CodeValue">
 								<Code><![CDATA[traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);
 distanceDriven += agent.getDistanceDriven();
-traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven + ")");]]></Code>
+traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
