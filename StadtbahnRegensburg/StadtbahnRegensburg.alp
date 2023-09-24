@@ -109,6 +109,48 @@
 			</ScaleRuler>
 			<CurrentLevel>1694694320904</CurrentLevel>
 			<ConnectionsId>1694694320900</ConnectionsId>
+			<Outputs>
+				<Output>
+					<Id>1695574468077</Id>
+					<Name><![CDATA[avgQueueSize]]></Name>
+					<X>530</X><Y>710</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>false</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Type><![CDATA[double]]></Type>
+					<UnitType><![CDATA[NONE]]></UnitType>
+					<Value Class="CodeValue">
+						<Code><![CDATA[collectAvgQueueSize();]]></Code>
+					</Value>
+					<ComputationMoment>ON_SIMULATION_END</ComputationMoment>
+					<ComputationTimeCode Class="CodeUnitValue">
+						<Code><![CDATA[]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</ComputationTimeCode>
+					<ComputationDate>1695628800000</ComputationDate>
+				</Output>
+				<Output>
+					<Id>1695588803411</Id>
+					<Name><![CDATA[avgQueueTime]]></Name>
+					<X>530</X><Y>680</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Type><![CDATA[double]]></Type>
+					<UnitType><![CDATA[NONE]]></UnitType>
+					<Value Class="CodeValue">
+						<Code><![CDATA[collectAvgQueueTime();]]></Code>
+					</Value>
+					<ComputationMoment>ON_SIMULATION_END</ComputationMoment>
+					<ComputationTimeCode Class="CodeUnitValue">
+						<Code><![CDATA[]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</ComputationTimeCode>
+					<ComputationDate>1695628800000</ComputationDate>
+				</Output>
+			</Outputs>
 			<Variables>
 				<Variable Class="PlainVariable">
 					<Id>1694858981016</Id>
@@ -125,7 +167,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695296722367</Id>
 					<Name><![CDATA[passengersPerHour]]></Name>
-					<X>100</X><Y>650</Y>
+					<X>100</X><Y>620</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -140,7 +182,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695309807481</Id>
 					<Name><![CDATA[tramInterval]]></Name>
-					<X>100</X><Y>680</Y>
+					<X>100</X><Y>650</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -155,13 +197,28 @@
 				<Variable Class="PlainVariable">
 					<Id>1695392465629</Id>
 					<Name><![CDATA[distanceDriven]]></Name>
-					<X>100</X><Y>710</Y>
+					<X>100</X><Y>680</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695572127492</Id>
+					<Name><![CDATA[passengersTransported]]></Name>
+					<X>100</X><Y>710</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
 					</Properties>
 				</Variable>
 				<Variable Class="Parameter">
@@ -403,6 +460,24 @@
 							<DelimeterType>NO_DELIMETER</DelimeterType>
 						</ParameterEditor>
 					</Properties>                 
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1695589225491</Id>
+					<Name><![CDATA[stationList]]></Name>
+					<X>100</X><Y>1390</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Agent]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ uniStation, uniStation1, othStation, othStation1, galgenbergStation, galgenbergStation1, erpStation, erpStation1, dachauplatzStation, dachauplatzStation1, eisernStation, eisernStation1, woehrdStation, woehrdStation1, dezStation, dezStation1 }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
 				</Variable>
 			</Variables>
 			<Connectors>
@@ -1925,6 +2000,111 @@
 					</Points>
 				</Connector>
 			</Connectors>
+			<Events>
+				<Event>
+					<Id>1695574013608</Id>
+					<Name><![CDATA[getStatistics]]></Name>
+					<X>530</X><Y>650</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties TriggerType="timeout" Mode="occuresOnce">
+						<Timeout Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</Timeout>
+						<Rate Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
+						</Rate>
+						<OccurrenceAtTime>true</OccurrenceAtTime>
+						<OccurrenceDate>1695628800000</OccurrenceDate>
+						<OccurrenceTime Class="CodeUnitValue">
+							<Code><![CDATA[59.999999]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</OccurrenceTime>
+						<RecurrenceCode Class="CodeUnitValue">
+							<Code><![CDATA[1]]></Code>
+							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
+						</RecurrenceCode>
+						<Condition><![CDATA[false]]></Condition>
+					</Properties>
+				</Event>
+			</Events>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1695571950458</Id>
+					<Name><![CDATA[reportStatistics]]></Name>
+					<X>300</X><Y>650</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[agent]]></Name>
+						<Type><![CDATA[Train]]></Type>
+					</Parameter>
+					<Parameter>
+						<Name><![CDATA[leavingPassengers]]></Name>
+						<Type><![CDATA[int]]></Type>
+					</Parameter>
+					<Body><![CDATA[distanceDriven += agent.getDistanceDriven();
+traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
+agent.resetDistanceDriven();
+
+if(leavingPassengers <= agent.passenger) {
+	passengersTransported += leavingPassengers;
+	traceln("Totel Passengers Transported: " + passengersTransported + " (+" + leavingPassengers + ")");
+} else {
+	passengersTransported += agent.passenger;
+	traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agent.passenger + ")");
+}
+
+
+]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1695574152745</Id>
+					<Name><![CDATA[collectAvgQueueSize]]></Name>
+					<X>300</X><Y>680</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[traceln("OTH AVG SIZE: " +othStation.statsSize.mean());
+traceln("OTH AVG TIME: " +(othStation.statsSize.mean()/(passengersPerHour/14)*60));
+return othStation.statsSize.mean();]]></Body>
+				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1695588847566</Id>
+					<Name><![CDATA[collectAvgQueueTime]]></Name>
+					<X>300</X><Y>710</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[traceln("AVG QUEUE TIME [MIN]");
+double sum = 0;
+
+/*
+for (int i = 0; i < stationList.size(); i++) {
+	Agent agent = stationList.get(i);
+	double temp = (agent.statsSize.mean()/(passengersPerHour/14)*60);
+	traceln(stationList.get(i).getName() + " avg time: " + temp);
+}*/
+
+sum += sum( stationList, c -> c.statsSize.mean()/(passengersPerHour/14)*60);
+traceln("=== > sum avg time: " + sum/stationList.size());
+return sum/stationList.size();]]></Body>
+				</Function>
+			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1694694320900</Id>
@@ -2376,8 +2556,12 @@
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -2650,9 +2834,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadOth*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadOth*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2924,9 +3109,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2940,7 +3126,9 @@ agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),l
 							<Value Class="CodeValue">
 								<Code><![CDATA[traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);
 distanceDriven += agent.getDistanceDriven();
-traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven + ")");]]></Code>
+traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
+passengersTransported += agent.passenger;
+traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agent.passenger + ")");]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3428,10 +3616,10 @@ traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven + 
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3703,9 +3891,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadWoehrd*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadWoehrd*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3977,9 +4166,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -3993,7 +4183,9 @@ agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),l
 							<Value Class="CodeValue">
 								<Code><![CDATA[traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);
 distanceDriven += agent.getDistanceDriven();
-traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven + ")");]]></Code>
+traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
+passengersTransported += agent.passenger;
+traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agent.passenger + ")");]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4153,9 +4345,10 @@ traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven + 
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadGalgenberg*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadGalgenberg*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4583,9 +4776,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadErp*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadErp*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4857,9 +5051,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadDachauplatz*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDachauplatz*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5131,9 +5326,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadEisern*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadEisern*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5405,9 +5601,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadWoehrd*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadWoehrd*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5679,9 +5876,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadEisern*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadEisern*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5953,9 +6151,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadDachauplatz*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDachauplatz*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6227,9 +6426,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadErp*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadErp*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6345,9 +6545,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadGalgenberg*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadGalgenberg*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6775,9 +6976,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengers = (int) (workloadOth*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-agent.unloadPassengers((int)(triangular(leavingPassengers*(1-leavingVariation),leavingPassengers,leavingPassengers*(1+leavingVariation))));
-]]></Code>
+								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadOth*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7024,7 +7226,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadUni)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadUni)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -8132,7 +8334,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadOth)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadOth)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -8328,7 +8530,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadGalgenberg)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadGalgenberg)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -8524,7 +8726,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadErp)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadErp)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -8720,7 +8922,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadDachauplatz)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDachauplatz)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -8916,7 +9118,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadEisern)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadEisern)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -9112,7 +9314,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadWoehrd)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadWoehrd)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -10220,7 +10422,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadOth)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadOth)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -10416,7 +10618,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadGalgenberg)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadGalgenberg)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -10612,7 +10814,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadErp)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadErp)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -10808,7 +11010,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadDachauplatz)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDachauplatz)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11004,7 +11206,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadEisern)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadEisern)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11200,7 +11402,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadWoehrd)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadWoehrd)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11396,7 +11598,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/8)*workloadDez)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDez)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11601,6 +11803,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 							<PackageName><![CDATA[stadtbahnregensburg]]></PackageName>
 							<ClassName><![CDATA[gismap_2.jpg]]></ClassName>
 						</ImageResourceReference>
+						<ImageResourceReference>
+							<PackageName><![CDATA[stadtbahnregensburg]]></PackageName>
+							<ClassName><![CDATA[karte_regensburg_stadtbahn.PNG]]></ClassName>
+						</ImageResourceReference>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
 				</Image>
@@ -11717,10 +11923,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Id>1694789945304</Id>
 					<Name><![CDATA[Universität]]></Name>
 					<X>345</X><Y>550</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>-74</X><Y>19</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -11847,10 +12053,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Id>1694789965205</Id>
 					<Name><![CDATA[OTH]]></Name>
 					<X>430</X><Y>485</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>8.814</X><Y>-12.772</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -11980,7 +12186,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -12107,10 +12313,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Id>1694855240282</Id>
 					<Name><![CDATA[WoehrdStrasse]]></Name>
 					<X>557</X><Y>125</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>-24.514</X><Y>29.811</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -12237,10 +12443,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Id>1694855266905</Id>
 					<Name><![CDATA[EiserneBruecke]]></Name>
 					<X>474</X><Y>121</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>-106.267</X><Y>-21.041</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -12370,7 +12576,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -12500,7 +12706,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -12627,10 +12833,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 					<Id>1694855325640</Id>
 					<Name><![CDATA[Galgenbergbrücke]]></Name>
 					<X>463</X><Y>323</Y>
-					<Label><X>10</X><Y>0</Y></Label>
+					<Label><X>6.23</X><Y>20.506</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
+					<ShowLabel>true</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<EmbeddedObject>
@@ -16222,6 +16428,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 		</Resource>
 		<Resource>
 			<Path><![CDATA[gismap_2.jpg]]></Path>
+			<ReferencedFromUserCode>false</ReferencedFromUserCode>
+		</Resource>
+		<Resource>
+			<Path><![CDATA[karte_regensburg_stadtbahn.PNG]]></Path>
 			<ReferencedFromUserCode>false</ReferencedFromUserCode>
 		</Resource>
 	</ModelResources>
