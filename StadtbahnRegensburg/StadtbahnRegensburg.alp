@@ -153,18 +153,6 @@
 			</Outputs>
 			<Variables>
 				<Variable Class="PlainVariable">
-					<Id>1694858981016</Id>
-					<Name><![CDATA[variable]]></Name>
-					<X>1220</X><Y>860</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[double]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
 					<Id>1695296722367</Id>
 					<Name><![CDATA[passengersPerHour]]></Name>
 					<X>100</X><Y>620</Y>
@@ -234,7 +222,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[1.19]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309256228</Id>
@@ -258,7 +246,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[0.72]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309282888</Id>
@@ -282,7 +270,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[0.92]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309297178</Id>
@@ -306,7 +294,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[3.03]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309318214</Id>
@@ -330,7 +318,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[0.76]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309339295</Id>
@@ -354,7 +342,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[0.32]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309339316</Id>
@@ -378,7 +366,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[0.14]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309339334</Id>
@@ -402,7 +390,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[1]]></Code>
+							<Code><![CDATA[0.93]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695309339343</Id>
@@ -461,6 +449,30 @@
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695663931052</Id>
+					<Name><![CDATA[avgTramSpeed]]></Name>
+					<X>530</X><Y>620</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[30]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695663931050</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 				<Variable Class="CollectionVariable">
 					<Id>1695589225491</Id>
 					<Name><![CDATA[stationList]]></Name>
@@ -474,7 +486,7 @@
 						<ElementClass><![CDATA[Agent]]></ElementClass>
 						<ValueElementClass><![CDATA[String]]></ValueElementClass>
 						<CollectionInitializer Class="CodeValue">
-							<Code><![CDATA[{ uniStation, uniStation1, othStation, othStation1, galgenbergStation, galgenbergStation1, erpStation, erpStation1, dachauplatzStation, dachauplatzStation1, eisernStation, eisernStation1, woehrdStation, woehrdStation1, dezStation, dezStation1 }]]></Code>
+							<Code><![CDATA[{ uniStation, othStation, othStation1, galgenbergStation, galgenbergStation1, erpStation, erpStation1, dachauplatzStation, dachauplatzStation1, eisernStation, eisernStation1, woehrdStation, woehrdStation1, dezStation1 }]]></Code>
 						</CollectionInitializer>
 					</Properties>
 
@@ -2076,9 +2088,19 @@ if(leavingPassengers <= agent.passenger) {
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Body><![CDATA[traceln("OTH AVG SIZE: " +othStation.statsSize.mean());
-traceln("OTH AVG TIME: " +(othStation.statsSize.mean()/(passengersPerHour/14)*60));
-return othStation.statsSize.mean();]]></Body>
+					<Body><![CDATA[traceln("AVG QUEUE SIZE");
+double sum = 0;
+
+
+for (int i = 0; i < stationList.size(); i++) {
+	Queue agent = (Queue) (stationList.get(i));
+	double temp = (agent.statsSize.mean());
+	traceln(stationList.get(i).getName() + " avg size: " + temp);
+	sum += temp;
+}
+
+traceln("=== > sum avg size: " + sum/stationList.size());
+return sum/stationList.size();]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>RETURNS_VALUE</ReturnModificator>
@@ -2093,15 +2115,15 @@ return othStation.statsSize.mean();]]></Body>
 					<Body><![CDATA[traceln("AVG QUEUE TIME [MIN]");
 double sum = 0;
 
-/*
+
 for (int i = 0; i < stationList.size(); i++) {
-	Agent agent = stationList.get(i);
+	Queue agent = (Queue) (stationList.get(i));
 	double temp = (agent.statsSize.mean()/(passengersPerHour/14)*60);
 	traceln(stationList.get(i).getName() + " avg time: " + temp);
-}*/
+	sum += temp;
+}
 
-sum += sum( stationList, c -> c.statsSize.mean()/(passengersPerHour/14)*60);
-traceln("=== > sum avg time: " + sum/stationList.size());
+traceln("=== > sum avg time: " + sum/stationList.size() + " [min]");
 return sum/stationList.size();]]></Body>
 				</Function>
 			</Functions>
@@ -2531,7 +2553,7 @@ return sum/stationList.size();]]></Body>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -2703,6 +2725,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -2809,7 +2835,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -2978,6 +3004,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -3084,7 +3114,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -3591,7 +3621,7 @@ traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agen
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -3760,6 +3790,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -3866,7 +3900,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -4035,6 +4069,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -4141,7 +4179,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -4320,7 +4358,7 @@ traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agen
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -4645,6 +4683,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -4751,7 +4793,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -4920,6 +4962,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -5026,7 +5072,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -5195,6 +5241,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -5301,7 +5351,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -5470,6 +5520,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -5576,7 +5630,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -5745,6 +5799,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -5851,7 +5909,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -6020,6 +6078,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -6126,7 +6188,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -6295,6 +6357,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -6401,7 +6467,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -6520,7 +6586,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -6689,6 +6755,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -6845,6 +6915,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -6951,7 +7025,7 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[10]]></Code>
+								<Code><![CDATA[triangular(5, 35, 20)]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -7120,6 +7194,10 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
+							<Value Class="CodeUnitValue">
+								<Code><![CDATA[triangular(5.7, 13.8, avgTramSpeed)]]></Code>
+								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[startOptions]]></Name>
@@ -16397,6 +16475,9 @@ while(waitingPassengers > 0 && agent.passenger < agent.maxPassenger) {
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[leavingVariation]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[avgTramSpeed]]></ParameterName>
 				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
