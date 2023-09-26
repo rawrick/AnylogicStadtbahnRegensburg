@@ -3165,7 +3165,9 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);
 distanceDriven += agent.getDistanceDriven();
 traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
 passengersTransported += agent.passenger;
-traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agent.passenger + ")");]]></Code>
+traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agent.passenger + ")");
+double kWh = agent.totalEnergyUsed/(double)3600000;
+traceln("_________________________________________train arrived total energy= "+agent.totalEnergyUsed +" | in kWh = "+kWh);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -16367,7 +16369,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[10000]]></Code>
+							<Code><![CDATA[50000]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -16422,12 +16424,12 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<X>300</X><Y>-160</Y>
 					<Label><X>10</X><Y>15</Y></Label>
 					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>false</PresentationFlag>
+					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[0.5]]></Code>
+							<Code><![CDATA[11000]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -16550,8 +16552,7 @@ traceln("Train slowed down; total energy: "+totalEnergyUsed);]]></Body>
 						<Name><![CDATA[distance]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[totalEnergyUsed += ENERGY_PER_METER_TRAVELED*distance;
-        
+					<Body><![CDATA[totalEnergyUsed += ENERGY_PER_METER_TRAVELED*distance + (passenger*PASSENGER_MASS)*4.5; //4.5 == ratio between train_mass and energy_per_meter_traveled
         
 traceln("Train moved distance, total energy: "+totalEnergyUsed);]]></Body>
 				</Function>
