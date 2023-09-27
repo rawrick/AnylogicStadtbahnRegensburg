@@ -111,7 +111,7 @@
 				<Output>
 					<Id>1695574468077</Id>
 					<Name><![CDATA[avgQueueSize]]></Name>
-					<X>530</X><Y>710</Y>
+					<X>1300</X><Y>180</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>false</PresentationFlag>
@@ -131,7 +131,7 @@
 				<Output>
 					<Id>1695588803411</Id>
 					<Name><![CDATA[avgQueueTime]]></Name>
-					<X>530</X><Y>680</Y>
+					<X>1540</X><Y>110</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -151,39 +151,9 @@
 			</Outputs>
 			<Variables>
 				<Variable Class="PlainVariable">
-					<Id>1695296722367</Id>
-					<Name><![CDATA[passengersPerHour]]></Name>
-					<X>100</X><Y>620</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[2500]]></Code>
-						</InitialValue>
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
-					<Id>1695309807481</Id>
-					<Name><![CDATA[tramInterval]]></Name>
-					<X>100</X><Y>650</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int]]></Type>        
-						<InitialValue Class="CodeValue">
-							<Code><![CDATA[5]]></Code>
-						</InitialValue>
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
 					<Id>1695392465629</Id>
 					<Name><![CDATA[distanceDriven]]></Name>
-					<X>100</X><Y>680</Y>
+					<X>1110</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -195,7 +165,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695572127492</Id>
 					<Name><![CDATA[passengersTransported]]></Name>
-					<X>100</X><Y>710</Y>
+					<X>1110</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -412,7 +382,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.85]]></Code>
+							<Code><![CDATA[0.95]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695310148629</Id>
@@ -436,7 +406,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.2]]></Code>
+							<Code><![CDATA[0.3]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695310250700</Id>
@@ -450,7 +420,7 @@
 				<Variable Class="Parameter">
 					<Id>1695663931052</Id>
 					<Name><![CDATA[avgTramSpeed]]></Name>
-					<X>530</X><Y>620</Y>
+					<X>1540</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -464,6 +434,78 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695663931050</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695809608255</Id>
+					<Name><![CDATA[selectedVehicle]]></Name>
+					<X>1710</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[String]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA["Train"]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695809608253</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695811840247</Id>
+					<Name><![CDATA[passengersPerHour]]></Name>
+					<X>1110</X><Y>50</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[2000]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695811840245</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695812077588</Id>
+					<Name><![CDATA[tramInterval]]></Name>
+					<X>1110</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[int]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[5]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695812077586</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -2014,7 +2056,7 @@
 				<Event>
 					<Id>1695574013608</Id>
 					<Name><![CDATA[getStatistics]]></Name>
-					<X>530</X><Y>650</Y>
+					<X>1540</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2048,7 +2090,7 @@
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1695571950458</Id>
 					<Name><![CDATA[reportStatistics]]></Name>
-					<X>300</X><Y>650</Y>
+					<X>1310</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2081,7 +2123,7 @@ if(leavingPassengers <= agent.passenger) {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1695574152745</Id>
 					<Name><![CDATA[collectAvgQueueSize]]></Name>
-					<X>300</X><Y>680</Y>
+					<X>1310</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2105,7 +2147,7 @@ return sum/stationList.size();]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1695588847566</Id>
 					<Name><![CDATA[collectAvgQueueTime]]></Name>
-					<X>300</X><Y>710</Y>
+					<X>1310</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2326,7 +2368,7 @@ return sum/stationList.size();]]></Body>
 						<Parameter>
 							<Name><![CDATA[cruiseSpeed]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[13]]></Code>
+								<Code><![CDATA[1]]></Code>
 								<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 							</Value>
 						</Parameter>
@@ -2467,7 +2509,7 @@ return sum/stationList.size();]]></Body>
 				<EmbeddedObject>
 					<Id>1694788369641</Id>
 					<Name><![CDATA[railCar]]></Name>
-					<X>50</X><Y>650</Y>
+					<X>1060</X><Y>80</Y>
 					<Label><X>-30</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2576,7 +2618,8 @@ return sum/stationList.size();]]></Body>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+								<Code><![CDATA[agent.setType(selectedVehicle);
+int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
 reportStatistics(agent, leavingPassengers);
 agent.unloadPassengers(leavingPassengers);
@@ -3235,9 +3278,6 @@ traceln("_________________________________________train arrived total energy= "+
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[trainSource1.inject();]]></Code>
-							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -3311,14 +3351,11 @@ traceln("_________________________________________train arrived total energy= "+
 					<Parameters>
 						<Parameter>
 							<Name><![CDATA[arrivalType]]></Name>
-							<Value Class="CodeValue">
-								<Code><![CDATA[self.MANUAL]]></Code>
-							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[interarrivalTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[2]]></Code>
+								<Code><![CDATA[tramInterval]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -11926,7 +11963,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<Image>
 					<Id>1694789823197</Id>
 					<Name><![CDATA[image]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>35</X><Y>-23</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -11934,17 +11971,17 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<Width>1000</Width>
-					<Height>600</Height>
+					<Width>960</Width>
+					<Height>720</Height>
 					<Rotation>0.0</Rotation>
 					<ImageFiles>
 						<ImageResourceReference>
 							<PackageName><![CDATA[stadtbahnregensburg]]></PackageName>
-							<ClassName><![CDATA[gismap_2.jpg]]></ClassName>
+							<ClassName><![CDATA[karte_regensburg_stadtbahn.PNG]]></ClassName>
 						</ImageResourceReference>
 						<ImageResourceReference>
 							<PackageName><![CDATA[stadtbahnregensburg]]></PackageName>
-							<ClassName><![CDATA[karte_regensburg_stadtbahn.PNG]]></ClassName>
+							<ClassName><![CDATA[gismap_2.jpg]]></ClassName>
 						</ImageResourceReference>
 					</ImageFiles>
 					<OriginalSize>false</OriginalSize>
@@ -16287,7 +16324,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<Id>1694859590752</Id>
 					<Name><![CDATA[passenger]]></Name>
 					<X>60</X><Y>70</Y>
-					<Label><X>10</X><Y>15</Y></Label>
+					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -16366,7 +16403,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="false">
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[50000]]></Code>
@@ -16381,7 +16418,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="false">
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[0.8]]></Code>
@@ -16411,7 +16448,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="false">
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[0.6]]></Code>
@@ -16426,10 +16463,25 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="true" AccessType="public" StaticVariable="false">
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[11000]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695813195847</Id>
+					<Name><![CDATA[type]]></Name>
+					<X>60</X><Y>100</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA["None"]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -16556,6 +16608,30 @@ traceln("Train slowed down; total energy: "+totalEnergyUsed);]]></Body>
         
 traceln("Train moved distance, total energy: "+totalEnergyUsed);]]></Body>
 				</Function>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1695813316204</Id>
+					<Name><![CDATA[setType]]></Name>
+					<X>60</X><Y>190</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Parameter>
+						<Name><![CDATA[newType]]></Name>
+						<Type><![CDATA[String]]></Type>
+					</Parameter>
+					<Body><![CDATA[this.type = newType;
+if (type == "Bus") {
+	TRAIN_MASS = 13000;
+	maxPassenger = 75;
+	REGENERATIVE_BRAKING_EFFICIENCY = 0;
+	EFFICIENCY = 0.6;
+	ENERGY_PER_METER_TRAVELED = 5000;
+}
+traceln("updated type " + newType);]]></Body>
+				</Function>
 			</Functions>
 			<AgentLinks>
 				<AgentLink>
@@ -16657,6 +16733,104 @@ traceln("Train moved distance, total energy: "+totalEnergyUsed);]]></Body>
 			<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 			<VmArgs><![CDATA[]]></VmArgs>
 			<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+			<Variables>
+				<Variable Class="PlainVariable">
+					<Id>1695812661678</Id>
+					<Name><![CDATA[valTrain]]></Name>
+					<X>130</X><Y>-20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA["Train"]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695812682554</Id>
+					<Name><![CDATA[valBus]]></Name>
+					<X>220</X><Y>-20</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[String]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA["Bus"]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695813583998</Id>
+					<Name><![CDATA[speedTram]]></Name>
+					<X>500</X><Y>-20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[10]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695813592588</Id>
+					<Name><![CDATA[speedBus]]></Name>
+					<X>620</X><Y>-20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[5.2]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1695812639442</Id>
+					<Name><![CDATA[typesList]]></Name>
+					<X>30</X><Y>-20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[String]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ valTrain, valBus }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+				<Variable Class="CollectionVariable">
+					<Id>1695813575066</Id>
+					<Name><![CDATA[speedList]]></Name>
+					<X>390</X><Y>-20</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" AccessType="public" StaticVariable="false">
+						<CollectionClass><![CDATA[ArrayList]]></CollectionClass>
+						<ElementClass><![CDATA[Double]]></ElementClass>
+						<ValueElementClass><![CDATA[String]]></ValueElementClass>
+						<CollectionInitializer Class="CodeValue">
+							<Code><![CDATA[{ speedTram, speedBus }]]></Code>
+						</CollectionInitializer>
+					</Properties>
+
+				</Variable>
+			</Variables>
 
 			<Presentation>
 				<Text>
@@ -16680,6 +16854,96 @@ traceln("Train moved distance, total energy: "+totalEnergyUsed);]]></Body>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1695811728764</Id>
+					<Name><![CDATA[numberOfPeople]]></Name>
+					<X>50</X><Y>100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[2500]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0]]></MinValue>
+						<MaxValue><![CDATA[5000]]></MaxValue>
+						<LinkTo>false</LinkTo>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Button">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1695812127023</Id>
+					<Name><![CDATA[button]]></Name>
+					<X>780</X><Y>500</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+						<ActionCode><![CDATA[run();
+getExperimentHost().setPresentable( getEngine().getRoot() );]]></ActionCode>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<LabelText><![CDATA[Run Model]]></LabelText>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="RadioButtons">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1695812308519</Id>
+					<Name><![CDATA[vehicleType]]></Name>
+					<X>50</X><Y>150</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="150" Height="100">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<TextColor/>
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<Font Name="Dialog" Size="11" Style="0"/>
+						<Orientation>VERTICAL</Orientation>
+						<Button><![CDATA[Stadtbahn]]></Button>
+						<Button><![CDATA[Bus]]></Button>
+						<LinkTo>false</LinkTo>
+					</ExtendedProperties>
+				</Control>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1695814717732</Id>
+					<Name><![CDATA[intervalSlider]]></Name>
+					<X>50</X><Y>250</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[10]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[5]]></MinValue>
+						<MaxValue><![CDATA[30]]></MaxValue>
+						<Step><![CDATA[5]]></Step>
+						<LinkTo>false</LinkTo>
+					</ExtendedProperties>
+				</Control>
 			</Presentation>
 
 			<Parameters>			
@@ -16715,6 +16979,27 @@ traceln("Train moved distance, total energy: "+totalEnergyUsed);]]></Body>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[avgTramSpeed]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[speedList.get(vehicleType.getValue());]]></Code>
+					</ParameterValue>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[selectedVehicle]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[typesList.get(vehicleType.getValue());]]></Code>
+					</ParameterValue>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[passengersPerHour]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[numberOfPeople.getIntValue();]]></Code>
+					</ParameterValue>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[tramInterval]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[intervalSlider.getIntValue();]]></Code>
+					</ParameterValue>
 				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
@@ -16732,7 +17017,7 @@ traceln("Train moved distance, total energy: "+totalEnergyUsed);]]></Body>
 				<FinalDate><![CDATA[1697241600000]]></FinalDate>	
 				<FinalTime><![CDATA[100.0]]></FinalTime>	
 			</ModelTimeProperties>
-			<BypassInitialScreen>true</BypassInitialScreen>
+			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>	
 	</Experiments>
 	<ModelResources>
