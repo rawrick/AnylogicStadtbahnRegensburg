@@ -177,6 +177,63 @@
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695816724357</Id>
+					<Name><![CDATA[energyUsed]]></Name>
+					<X>1100</X><Y>180</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695817947857</Id>
+					<Name><![CDATA[numberOfVehicles]]></Name>
+					<X>1100</X><Y>220</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695818163722</Id>
+					<Name><![CDATA[totalEnergyConsumption]]></Name>
+					<X>1100</X><Y>260</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695819382744</Id>
+					<Name><![CDATA[numberOfCompletedJourneys]]></Name>
+					<X>1100</X><Y>300</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1695309256230</Id>
 					<Name><![CDATA[workloadUni]]></Name>
@@ -2107,6 +2164,9 @@
 traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
 agent.resetDistanceDriven();
 
+energyUsed += agent.tempEnergy;
+agent.tempEnergy = 0;
+
 if(leavingPassengers <= agent.passenger) {
 	passengersTransported += leavingPassengers;
 	traceln("Totel Passengers Transported: " + passengersTransported + " (+" + leavingPassengers + ")");
@@ -2465,6 +2525,9 @@ return sum/stationList.size();]]></Body>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[numberOfVehicles += 1;]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -2621,10 +2684,13 @@ return sum/stationList.size();]]></Body>
 								<Code><![CDATA[agent.setType(selectedVehicle);
 int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(400);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -2904,10 +2970,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadOth*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(950);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -3187,10 +3256,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(870);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -3203,13 +3275,15 @@ agent.onSlowdown();
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.onAccelerate(avgTramSpeed);
+								<Code><![CDATA[numberOfCompletedJourneys += 1;
+agent.onAccelerate(avgTramSpeed);
 traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);
 distanceDriven += agent.getDistanceDriven();
 traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
 passengersTransported += agent.passenger;
 traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agent.passenger + ")");
 double kWh = agent.totalEnergyUsed/(double)3600000;
+totalEnergyConsumption +=agent.totalEnergyUsed;
 traceln("_________________________________________train arrived total energy= "+agent.totalEnergyUsed +" | in kWh = "+kWh);]]></Code>
 							</Value>
 						</Parameter>
@@ -3597,6 +3671,9 @@ traceln("_________________________________________train arrived total energy= "+
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[numberOfVehicles += 1;]]></Code>
+							</Value>
 						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
@@ -3694,10 +3771,13 @@ traceln("_________________________________________train arrived total energy= "+
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(400);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -3977,10 +4057,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadWoehrd*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(865);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -4260,10 +4343,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(960);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -4276,11 +4362,13 @@ agent.onSlowdown();
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[agent.onAccelerate(avgTramSpeed);
+								<Code><![CDATA[numberOfCompletedJourneys += 1;
+agent.onAccelerate(avgTramSpeed);
 traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);
 distanceDriven += agent.getDistanceDriven();
 traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
 passengersTransported += agent.passenger;
+totalEnergyConsumption +=agent.totalEnergyUsed;
 traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agent.passenger + ")");]]></Code>
 							</Value>
 						</Parameter>
@@ -4443,10 +4531,13 @@ traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agen
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadGalgenberg*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(1082);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -4882,10 +4973,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadErp*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(371);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -5165,10 +5259,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDachauplatz*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(397);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -5448,10 +5545,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadEisern*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(595);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -5731,10 +5831,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadWoehrd*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(538);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -6014,10 +6117,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadEisern*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(538);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -6297,10 +6403,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDachauplatz*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(595);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -6580,10 +6689,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadErp*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(397);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -6703,10 +6815,13 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadGalgenberg*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(371);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
+
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -7146,10 +7261,12 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 							<Value Class="CodeValue">
 								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadOth*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
-reportStatistics(agent, leavingPassengers);
-agent.unloadPassengers(leavingPassengers);
+
 agent.onDrive(1082);
 agent.onSlowdown();
+
+reportStatistics(agent, leavingPassengers);
+agent.unloadPassengers(leavingPassengers);
 ]]></Code>
 							</Value>
 						</Parameter>
@@ -14296,6 +14413,181 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 			</Presentation>
 
 				</Railyard>
+				<Rectangle>
+					<Id>1695815579031</Id>
+					<Name><![CDATA[rectangle]]></Name>
+					<X>660</X><Y>400</Y>
+					<Label><X>10</X><Y>10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<ZHeight>10</ZHeight>
+					<LineWidth>1</LineWidth>
+					<LineColor>-16777216</LineColor>
+					<LineMaterial>null</LineMaterial>
+					<LineStyle>SOLID</LineStyle>
+					<Width>340</Width>
+					<Height>200</Height>
+					<Rotation>0.0</Rotation>
+					<FillColor>-1</FillColor>
+					<FillMaterial>null</FillMaterial>
+				</Rectangle>
+				<Text>
+					<Id>1695815601830</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>680</X><Y>420</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken]]></Text>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>20</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695815758958</Id>
+					<Name><![CDATA[textStrecke]]></Name>
+					<X>700</X><Y>460</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken + ]]></Text>
+					<TextCode><![CDATA["Gesamtstrecke: " + String.format("%.2f", distanceDriven/1000) + " km"]]></TextCode>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695816154782</Id>
+					<Name><![CDATA[textEnergie]]></Name>
+					<X>700</X><Y>520</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken + ]]></Text>
+					<TextCode><![CDATA["Energieverbrauch: " + String.format("%.2f", energyUsed/(double)3600000) + " kWh"]]></TextCode>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695816237217</Id>
+					<Name><![CDATA[textStrecke1]]></Name>
+					<X>700</X><Y>480</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken + ]]></Text>
+					<TextCode><![CDATA["Beförderte Personen: " + passengersTransported]]></TextCode>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695818027704</Id>
+					<Name><![CDATA[textEnergie1]]></Name>
+					<X>700</X><Y>500</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken + ]]></Text>
+					<TextCode><![CDATA["Fahrten: " + numberOfCompletedJourneys + " (+" + (numberOfVehicles - numberOfCompletedJourneys) + ")"]]></TextCode>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695818107652</Id>
+					<Name><![CDATA[textEnergie2]]></Name>
+					<X>700</X><Y>540</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken + ]]></Text>
+					<TextCode><![CDATA["Energieverbrauch pro Fahrt: " + String.format("%.2f", (totalEnergyConsumption/(double)3600000)/numberOfCompletedJourneys) + " kWh"]]></TextCode>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695819818578</Id>
+					<Name><![CDATA[textEnergie3]]></Name>
+					<X>700</X><Y>560</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken + ]]></Text>
+					<TextCode><![CDATA["Energieverbrauch pro Passagier: " + String.format("%.2f", (energyUsed/(double)3600000)/passengersTransported) + " kWh"]]></TextCode>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -16485,6 +16777,21 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695818665891</Id>
+					<Name><![CDATA[tempEnergy]]></Name>
+					<X>300</X><Y>-10</Y>
+					<Label><X>10</X><Y>15</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 			</Variables>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
@@ -16567,6 +16874,7 @@ double finalEnergy = calculateKineticEnergy();
 
 double energyUsed = (finalEnergy - initialEnergy) / EFFICIENCY;
 totalEnergyUsed += energyUsed;
+tempEnergy += energyUsed;
 
 traceln("Train accelerated; total energy: "+totalEnergyUsed);]]></Body>
 				</Function>
@@ -16586,7 +16894,7 @@ double finalEnergy = calculateKineticEnergy();
 
 double energyRecovered = (initialEnergy - finalEnergy) * REGENERATIVE_BRAKING_EFFICIENCY;
 totalEnergyUsed -= energyRecovered;
-        
+tempEnergy -= energyRecovered;
         
 traceln("Train slowed down; total energy: "+totalEnergyUsed);]]></Body>
 				</Function>
@@ -16605,7 +16913,7 @@ traceln("Train slowed down; total energy: "+totalEnergyUsed);]]></Body>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
 					<Body><![CDATA[totalEnergyUsed += ENERGY_PER_METER_TRAVELED*distance + (passenger*PASSENGER_MASS)*4.5; //4.5 == ratio between train_mass and energy_per_meter_traveled
-        
+tempEnergy += ENERGY_PER_METER_TRAVELED*distance + (passenger*PASSENGER_MASS)*4.5; //4.5 == ratio between train_mass and energy_per_meter_traveled   
 traceln("Train moved distance, total energy: "+totalEnergyUsed);]]></Body>
 				</Function>
 				<Function AccessType="default" StaticFunction="false">
