@@ -111,10 +111,10 @@
 				<Output>
 					<Id>1695574468077</Id>
 					<Name><![CDATA[avgQueueSize]]></Name>
-					<X>1300</X><Y>180</Y>
+					<X>1540</X><Y>180</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>false</PresentationFlag>
+					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
 					<Type><![CDATA[double]]></Type>
 					<UnitType><![CDATA[NONE]]></UnitType>
@@ -131,7 +131,7 @@
 				<Output>
 					<Id>1695588803411</Id>
 					<Name><![CDATA[avgQueueTime]]></Name>
-					<X>1540</X><Y>110</Y>
+					<X>1540</X><Y>140</Y>
 					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -153,7 +153,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695392465629</Id>
 					<Name><![CDATA[distanceDriven]]></Name>
-					<X>1110</X><Y>110</Y>
+					<X>1340</X><Y>140</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -165,7 +165,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695572127492</Id>
 					<Name><![CDATA[passengersTransported]]></Name>
-					<X>1110</X><Y>140</Y>
+					<X>1340</X><Y>180</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -180,7 +180,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695816724357</Id>
 					<Name><![CDATA[energyUsed]]></Name>
-					<X>1100</X><Y>180</Y>
+					<X>1340</X><Y>220</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -195,7 +195,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695817947857</Id>
 					<Name><![CDATA[numberOfVehicles]]></Name>
-					<X>1100</X><Y>220</Y>
+					<X>1340</X><Y>260</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -210,7 +210,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695818163722</Id>
 					<Name><![CDATA[totalEnergyConsumption]]></Name>
-					<X>1100</X><Y>260</Y>
+					<X>1340</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -222,7 +222,7 @@
 				<Variable Class="PlainVariable">
 					<Id>1695819382744</Id>
 					<Name><![CDATA[numberOfCompletedJourneys]]></Name>
-					<X>1100</X><Y>300</Y>
+					<X>1340</X><Y>340</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -231,6 +231,36 @@
 						<Type><![CDATA[int]]></Type>        
 						<InitialValue Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695900142281</Id>
+					<Name><![CDATA[numberOfStops]]></Name>
+					<X>1340</X><Y>380</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[int]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[1]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1695900344634</Id>
+					<Name><![CDATA[occupiedPercentage]]></Name>
+					<X>1340</X><Y>420</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[0.01]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -477,7 +507,7 @@
 				<Variable Class="Parameter">
 					<Id>1695663931052</Id>
 					<Name><![CDATA[avgTramSpeed]]></Name>
-					<X>1540</X><Y>50</Y>
+					<X>1340</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -501,7 +531,7 @@
 				<Variable Class="Parameter">
 					<Id>1695809608255</Id>
 					<Name><![CDATA[selectedVehicle]]></Name>
-					<X>1710</X><Y>50</Y>
+					<X>1340</X><Y>20</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -525,7 +555,7 @@
 				<Variable Class="Parameter">
 					<Id>1695811840247</Id>
 					<Name><![CDATA[passengersPerHour]]></Name>
-					<X>1110</X><Y>50</Y>
+					<X>1340</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -549,7 +579,7 @@
 				<Variable Class="Parameter">
 					<Id>1695812077588</Id>
 					<Name><![CDATA[tramInterval]]></Name>
-					<X>1110</X><Y>80</Y>
+					<X>1340</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -563,6 +593,30 @@
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1695812077586</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1695902965631</Id>
+					<Name><![CDATA[preBoardingDebuff]]></Name>
+					<X>1000</X><Y>1050</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[1.0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1695902965629</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -659,7 +713,7 @@
 				<Connector>
 					<Id>1694788455585</Id>
 					<Name><![CDATA[connector2]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>280</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -685,14 +739,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>260</X><Y>780</Y></Point>
-						<Point><X>230</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694788477532</Id>
 					<Name><![CDATA[connector3]]></Name>
-					<X>350</X><Y>780</Y>
+					<X>370</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -725,7 +779,7 @@
 				<Connector>
 					<Id>1694788528934</Id>
 					<Name><![CDATA[connector5]]></Name>
-					<X>1110</X><Y>780</Y>
+					<X>1440</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -752,7 +806,7 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -824,7 +878,7 @@
 				<Connector>
 					<Id>1694856485493</Id>
 					<Name><![CDATA[connector9]]></Name>
-					<X>260</X><Y>860</Y>
+					<X>280</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -851,13 +905,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-30</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694856485495</Id>
 					<Name><![CDATA[connector10]]></Name>
-					<X>350</X><Y>860</Y>
+					<X>370</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -890,7 +944,7 @@
 				<Connector>
 					<Id>1694856485499</Id>
 					<Name><![CDATA[connector12]]></Name>
-					<X>1120</X><Y>860</Y>
+					<X>1440</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -917,13 +971,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-30</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694857810541</Id>
 					<Name><![CDATA[connector6]]></Name>
-					<X>425</X><Y>780</Y>
+					<X>460</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -950,13 +1004,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-35</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694857942025</Id>
 					<Name><![CDATA[connector14]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>550</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -982,14 +1036,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>505</X><Y>780</Y></Point>
-						<Point><X>465</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694857945766</Id>
 					<Name><![CDATA[connector15]]></Name>
-					<X>570</X><Y>780</Y>
+					<X>640</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1016,13 +1070,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858007611</Id>
 					<Name><![CDATA[connector13]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>730</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1048,14 +1102,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>630</X><Y>780</Y></Point>
-						<Point><X>610</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858033924</Id>
 					<Name><![CDATA[connector16]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>820</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1081,14 +1135,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>685</X><Y>780</Y></Point>
-						<Point><X>670</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858069222</Id>
 					<Name><![CDATA[connector17]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>910</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1114,14 +1168,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>750</X><Y>780</Y></Point>
-						<Point><X>725</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858100519</Id>
 					<Name><![CDATA[connector18]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>995</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1147,14 +1201,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>805</X><Y>780</Y></Point>
-						<Point><X>790</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-45</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858139945</Id>
 					<Name><![CDATA[connector19]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>1080</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1180,14 +1234,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>865</X><Y>780</Y></Point>
-						<Point><X>845</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-45</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858177513</Id>
 					<Name><![CDATA[connector20]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>1170</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1213,14 +1267,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>930</X><Y>780</Y></Point>
-						<Point><X>905</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858195396</Id>
 					<Name><![CDATA[connector4]]></Name>
-					<X>1045</X><Y>780</Y>
+					<X>1350</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1247,13 +1301,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-20</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858195397</Id>
 					<Name><![CDATA[connector21]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>1260</X><Y>780</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1279,14 +1333,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>985</X><Y>780</Y></Point>
-						<Point><X>970</X><Y>780</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858417325</Id>
 					<Name><![CDATA[connector22]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>460</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1312,14 +1366,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>425</X><Y>860</Y></Point>
-						<Point><X>390</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858438163</Id>
 					<Name><![CDATA[connector23]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>550</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1345,14 +1399,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>505</X><Y>860</Y></Point>
-						<Point><X>465</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858472115</Id>
 					<Name><![CDATA[connector24]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>640</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1378,14 +1432,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>570</X><Y>860</Y></Point>
-						<Point><X>545</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858488530</Id>
 					<Name><![CDATA[connector25]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>730</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1411,14 +1465,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>625</X><Y>860</Y></Point>
-						<Point><X>610</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858504780</Id>
 					<Name><![CDATA[connector26]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>820</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1444,14 +1498,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>685</X><Y>860</Y></Point>
-						<Point><X>665</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858534959</Id>
 					<Name><![CDATA[connector27]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>995</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1477,14 +1531,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>805</X><Y>860</Y></Point>
-						<Point><X>790</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-45</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858534960</Id>
 					<Name><![CDATA[connector28]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>910</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1510,14 +1564,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>750</X><Y>860</Y></Point>
-						<Point><X>725</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858551864</Id>
 					<Name><![CDATA[connector29]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>1080</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1543,14 +1597,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>860</X><Y>860</Y></Point>
-						<Point><X>845</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-45</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858567681</Id>
 					<Name><![CDATA[connector30]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>1170</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1576,14 +1630,14 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>930</X><Y>860</Y></Point>
-						<Point><X>900</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858580530</Id>
 					<Name><![CDATA[connector11]]></Name>
-					<X>1050</X><Y>860</Y>
+					<X>1350</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1610,13 +1664,13 @@
 					</TargetConnectableItemReference>
 					<Points>
 						<Point><X>0</X><Y>0</Y></Point>
-						<Point><X>-25</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
 					<Id>1694858580531</Id>
 					<Name><![CDATA[connector31]]></Name>
-					<X>0</X><Y>0</Y>
+					<X>1260</X><Y>860</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1642,8 +1696,8 @@
 						<ItemName><![CDATA[out]]></ItemName>
 					</TargetConnectableItemReference>
 					<Points>
-						<Point><X>985</X><Y>860</Y></Point>
-						<Point><X>970</X><Y>860</Y></Point>
+						<Point><X>0</X><Y>0</Y></Point>
+						<Point><X>-50</X><Y>0</Y></Point>
 					</Points>
 				</Connector>
 				<Connector>
@@ -2109,45 +2163,13 @@
 					</Points>
 				</Connector>
 			</Connectors>
-			<Events>
-				<Event>
-					<Id>1695574013608</Id>
-					<Name><![CDATA[getStatistics]]></Name>
-					<X>1540</X><Y>80</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties TriggerType="timeout" Mode="occuresOnce">
-						<Timeout Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</Timeout>
-						<Rate Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="RateUnits"><![CDATA[PER_MINUTE]]></Unit>
-						</Rate>
-						<OccurrenceAtTime>true</OccurrenceAtTime>
-						<OccurrenceDate>1695628800000</OccurrenceDate>
-						<OccurrenceTime Class="CodeUnitValue">
-							<Code><![CDATA[59.999999]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</OccurrenceTime>
-						<RecurrenceCode Class="CodeUnitValue">
-							<Code><![CDATA[1]]></Code>
-							<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
-						</RecurrenceCode>
-						<Condition><![CDATA[false]]></Condition>
-					</Properties>
-				</Event>
-			</Events>
 			<Functions>
 				<Function AccessType="default" StaticFunction="false">
 					<ReturnModificator>VOID</ReturnModificator>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1695571950458</Id>
 					<Name><![CDATA[reportStatistics]]></Name>
-					<X>1310</X><Y>80</Y>
+					<X>1540</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2167,6 +2189,10 @@ agent.resetDistanceDriven();
 energyUsed += agent.tempEnergy;
 agent.tempEnergy = 0;
 
+numberOfStops += 1;
+occupiedPercentage += (double) (agent.passenger)/ (double)(agent.maxPassenger);
+traceln("||||||occupied percntage:" + ((double) (agent.passenger)/ (double)(agent.maxPassenger)));
+
 if(leavingPassengers <= agent.passenger) {
 	passengersTransported += leavingPassengers;
 	traceln("Totel Passengers Transported: " + passengersTransported + " (+" + leavingPassengers + ")");
@@ -2183,7 +2209,7 @@ if(leavingPassengers <= agent.passenger) {
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1695574152745</Id>
 					<Name><![CDATA[collectAvgQueueSize]]></Name>
-					<X>1310</X><Y>110</Y>
+					<X>1540</X><Y>80</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2207,7 +2233,7 @@ return sum/stationList.size();]]></Body>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1695588847566</Id>
 					<Name><![CDATA[collectAvgQueueTime]]></Name>
-					<X>1310</X><Y>140</Y>
+					<X>1540</X><Y>110</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2572,7 +2598,7 @@ return sum/stationList.size();]]></Body>
 				<EmbeddedObject>
 					<Id>1694788369641</Id>
 					<Name><![CDATA[railCar]]></Name>
-					<X>1060</X><Y>80</Y>
+					<X>1540</X><Y>20</Y>
 					<Label><X>-30</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2682,8 +2708,16 @@ return sum/stationList.size();]]></Body>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[agent.setType(selectedVehicle);
+
 int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
 int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+
+
+double passengerPreBoarding = passengersPerHour*0.011;
+
+agent.passenger = (int) triangular(passengerPreBoarding * 0.9, passengerPreBoarding*1.1, passengerPreBoarding);
+if (agent.passenger > agent.maxPassenger) {agent.passenger = agent.maxPassenger;}
+
 
 agent.onDrive(400);
 agent.onSlowdown();
@@ -2920,7 +2954,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694788453547</Id>
 					<Name><![CDATA[stopOth]]></Name>
-					<X>260</X><Y>760</Y>
+					<X>280</X><Y>760</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3046,7 +3080,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694788474930</Id>
 					<Name><![CDATA[othToGalgenberg]]></Name>
-					<X>350</X><Y>770</Y>
+					<X>370</X><Y>770</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3206,7 +3240,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694788495910</Id>
 					<Name><![CDATA[stopDez]]></Name>
-					<X>1045</X><Y>760</Y>
+					<X>1350</X><Y>760</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3333,7 +3367,7 @@ traceln("_________________________________________train arrived total energy= "+
 				<EmbeddedObject>
 					<Id>1694856402119</Id>
 					<Name><![CDATA[trainDispose]]></Name>
-					<X>1110</X><Y>780</Y>
+					<X>1440</X><Y>780</Y>
 					<Label><X>-40</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -3769,8 +3803,17 @@ traceln("_________________________________________train arrived total energy= "+
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+								<Code><![CDATA[agent.setType(selectedVehicle);
+
+int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg));
+
+
+double passengerPreBoarding = passengersPerHour*0.011;
+
+agent.passenger = (int) triangular(passengerPreBoarding * 0.9, passengerPreBoarding*1.1, passengerPreBoarding);
+if (agent.passenger > agent.maxPassenger) {agent.passenger = agent.maxPassenger;}
+
 
 agent.onDrive(400);
 agent.onSlowdown();
@@ -4007,7 +4050,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694856485471</Id>
 					<Name><![CDATA[stopWoerd1]]></Name>
-					<X>260</X><Y>840</Y>
+					<X>280</X><Y>840</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4133,7 +4176,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694856485475</Id>
 					<Name><![CDATA[WoehrdToEisern1]]></Name>
-					<X>350</X><Y>850</Y>
+					<X>370</X><Y>850</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4293,7 +4336,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694856485479</Id>
 					<Name><![CDATA[stopUni1]]></Name>
-					<X>1050</X><Y>840</Y>
+					<X>1350</X><Y>840</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4418,7 +4461,7 @@ traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agen
 				<EmbeddedObject>
 					<Id>1694856485487</Id>
 					<Name><![CDATA[trainDispose1]]></Name>
-					<X>1120</X><Y>860</Y>
+					<X>1440</X><Y>860</Y>
 					<Label><X>-40</X><Y>-30</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4481,7 +4524,7 @@ traceln("Totel Passengers Transported: " + passengersTransported + " *(+" + agen
 				<EmbeddedObject>
 					<Id>1694857810530</Id>
 					<Name><![CDATA[stopGalgenberg]]></Name>
-					<X>425</X><Y>760</Y>
+					<X>460</X><Y>760</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4607,7 +4650,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694857869348</Id>
 					<Name><![CDATA[othToGalgenberg1]]></Name>
-					<X>505</X><Y>770</Y>
+					<X>550</X><Y>770</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4763,7 +4806,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694857898511</Id>
 					<Name><![CDATA[GalgToERP]]></Name>
-					<X>505</X><Y>770</Y>
+					<X>550</X><Y>770</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -4923,7 +4966,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694857898515</Id>
 					<Name><![CDATA[stopERP]]></Name>
-					<X>570</X><Y>760</Y>
+					<X>640</X><Y>760</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5049,7 +5092,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858007590</Id>
 					<Name><![CDATA[ERPToDachP]]></Name>
-					<X>630</X><Y>770</Y>
+					<X>730</X><Y>770</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5209,7 +5252,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858033916</Id>
 					<Name><![CDATA[stopDachP]]></Name>
-					<X>685</X><Y>760</Y>
+					<X>820</X><Y>760</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5335,7 +5378,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858069211</Id>
 					<Name><![CDATA[DachPToEisern]]></Name>
-					<X>750</X><Y>770</Y>
+					<X>910</X><Y>770</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5495,7 +5538,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858100495</Id>
 					<Name><![CDATA[stopEisern]]></Name>
-					<X>805</X><Y>760</Y>
+					<X>995</X><Y>760</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5621,7 +5664,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858139934</Id>
 					<Name><![CDATA[EisernToWoehrd]]></Name>
-					<X>865</X><Y>770</Y>
+					<X>1080</X><Y>770</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5781,7 +5824,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858177505</Id>
 					<Name><![CDATA[stopWoehrd]]></Name>
-					<X>930</X><Y>760</Y>
+					<X>1170</X><Y>760</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -5907,7 +5950,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858195385</Id>
 					<Name><![CDATA[WoehrdToDez]]></Name>
-					<X>985</X><Y>770</Y>
+					<X>1260</X><Y>770</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6067,7 +6110,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858417311</Id>
 					<Name><![CDATA[stopEisern1]]></Name>
-					<X>425</X><Y>840</Y>
+					<X>460</X><Y>840</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6193,7 +6236,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858438147</Id>
 					<Name><![CDATA[EisernToDachP1]]></Name>
-					<X>505</X><Y>850</Y>
+					<X>550</X><Y>850</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6353,7 +6396,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858472102</Id>
 					<Name><![CDATA[stopDachP1]]></Name>
-					<X>570</X><Y>840</Y>
+					<X>640</X><Y>840</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6479,7 +6522,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858488516</Id>
 					<Name><![CDATA[DachPToERP]]></Name>
-					<X>625</X><Y>850</Y>
+					<X>730</X><Y>850</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6639,7 +6682,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858504772</Id>
 					<Name><![CDATA[stopERP1]]></Name>
-					<X>685</X><Y>840</Y>
+					<X>820</X><Y>840</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6765,7 +6808,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858518926</Id>
 					<Name><![CDATA[stopGalgen1]]></Name>
-					<X>805</X><Y>840</Y>
+					<X>995</X><Y>840</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -6891,7 +6934,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858534925</Id>
 					<Name><![CDATA[ERPToGalgen1]]></Name>
-					<X>750</X><Y>850</Y>
+					<X>910</X><Y>850</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7051,7 +7094,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858551847</Id>
 					<Name><![CDATA[GalgenToOTH1]]></Name>
-					<X>860</X><Y>850</Y>
+					<X>1080</X><Y>850</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7211,7 +7254,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858567672</Id>
 					<Name><![CDATA[stopOTH1]]></Name>
-					<X>930</X><Y>840</Y>
+					<X>1170</X><Y>840</Y>
 					<Label><X>-5</X><Y>-15</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7336,7 +7379,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<EmbeddedObject>
 					<Id>1694858580500</Id>
 					<Name><![CDATA[OTHToUni1]]></Name>
-					<X>985</X><Y>850</Y>
+					<X>1260</X><Y>850</Y>
 					<Label><X>-30</X><Y>-25</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7519,7 +7562,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadUni)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadUni*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -8627,7 +8670,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadOth)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadOth*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -8823,7 +8866,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadGalgenberg)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadGalgenberg*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -9019,7 +9062,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadErp)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadErp*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -9215,7 +9258,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDachauplatz)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDachauplatz*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -9411,7 +9454,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadEisern)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadEisern*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -9607,7 +9650,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadWoehrd)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadWoehrd*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -10715,7 +10758,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadOth)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadOth*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -10911,7 +10954,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadGalgenberg)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadGalgenberg*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11107,7 +11150,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadErp)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadErp*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11303,7 +11346,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDachauplatz)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDachauplatz*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11499,7 +11542,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadEisern)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadEisern*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11695,7 +11738,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadWoehrd)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadWoehrd*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -11891,7 +11934,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 						<Parameter>
 							<Name><![CDATA[rate]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDez)]]></Code>
+								<Code><![CDATA[(int)((passengersPerHour/14)*workloadDez*preBoardingDebuff)]]></Code>
 								<Unit Class="RateUnits"><![CDATA[PER_HOUR]]></Unit>
 							</Value>
 						</Parameter>
@@ -14416,7 +14459,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<Rectangle>
 					<Id>1695815579031</Id>
 					<Name><![CDATA[rectangle]]></Name>
-					<X>660</X><Y>400</Y>
+					<X>660</X><Y>380</Y>
 					<Label><X>10</X><Y>10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14430,7 +14473,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
 					<Width>340</Width>
-					<Height>200</Height>
+					<Height>220</Height>
 					<Rotation>0.0</Rotation>
 					<FillColor>-1</FillColor>
 					<FillMaterial>null</FillMaterial>
@@ -14438,7 +14481,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<Text>
 					<Id>1695815601830</Id>
 					<Name><![CDATA[text]]></Name>
-					<X>680</X><Y>420</Y>
+					<X>680</X><Y>400</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14459,7 +14502,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<Text>
 					<Id>1695815758958</Id>
 					<Name><![CDATA[textStrecke]]></Name>
-					<X>700</X><Y>460</Y>
+					<X>700</X><Y>440</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14503,7 +14546,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<Text>
 					<Id>1695816237217</Id>
 					<Name><![CDATA[textStrecke1]]></Name>
-					<X>700</X><Y>480</Y>
+					<X>700</X><Y>460</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14525,7 +14568,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 				<Text>
 					<Id>1695818027704</Id>
 					<Name><![CDATA[textEnergie1]]></Name>
-					<X>700</X><Y>500</Y>
+					<X>700</X><Y>480</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -14581,6 +14624,28 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<Color>-16777216</Color>
 					<Text><![CDATA[Statistiken + ]]></Text>
 					<TextCode><![CDATA["Energieverbrauch pro Passagier: " + String.format("%.2f", (energyUsed/(double)3600000)/passengersTransported) + " kWh"]]></TextCode>
+					<Font>
+						<Name>Calibri</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695899305235</Id>
+					<Name><![CDATA[textEnergie4]]></Name>
+					<X>700</X><Y>500</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Statistiken + ]]></Text>
+					<TextCode><![CDATA["Durchschnittliche Auslastung: " + String.format("%.2f",((occupiedPercentage/numberOfStops)*100)) + "%"]]></TextCode>
 					<Font>
 						<Name>Calibri</Name>
 						<Size>16</Size>
@@ -16743,7 +16808,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[0.6]]></Code>
+							<Code><![CDATA[0.4]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
@@ -17166,21 +17231,22 @@ traceln("updated type " + newType);]]></Body>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1695811728764</Id>
 					<Name><![CDATA[numberOfPeople]]></Name>
-					<X>50</X><Y>100</Y>
+					<X>280</X><Y>150</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="100" Height="30">
+					<BasicProperties Width="208.91089108910893" Height="30">
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<Enabled>true</Enabled>
 					</BasicProperties>
 					<ExtendedProperties>
 						<DefaultValueCode><![CDATA[2500]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
-						<MinValue><![CDATA[0]]></MinValue>
-						<MaxValue><![CDATA[5000]]></MaxValue>
+						<MinValue><![CDATA[1000]]></MinValue>
+						<MaxValue><![CDATA[50000]]></MaxValue>
+						<Step><![CDATA[250]]></Step>
 						<LinkTo>false</LinkTo>
 					</ExtendedProperties>
 				</Control>
@@ -17210,7 +17276,7 @@ getExperimentHost().setPresentable( getEngine().getRoot() );]]></ActionCode>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1695812308519</Id>
 					<Name><![CDATA[vehicleType]]></Name>
-					<X>50</X><Y>150</Y>
+					<X>270</X><Y>60</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -17222,8 +17288,8 @@ getExperimentHost().setPresentable( getEngine().getRoot() );]]></ActionCode>
 						<Enabled>true</Enabled>
 					</BasicProperties>
 					<ExtendedProperties>
-						<Font Name="Dialog" Size="11" Style="0"/>
-						<Orientation>VERTICAL</Orientation>
+						<Font Name="Dialog" Size="14" Style="0"/>
+						<Orientation>HORIZONTAL</Orientation>
 						<Button><![CDATA[Stadtbahn]]></Button>
 						<Button><![CDATA[Bus]]></Button>
 						<LinkTo>false</LinkTo>
@@ -17233,13 +17299,13 @@ getExperimentHost().setPresentable( getEngine().getRoot() );]]></ActionCode>
 				 	<EmbeddedIcon>false</EmbeddedIcon>				
 					<Id>1695814717732</Id>
 					<Name><![CDATA[intervalSlider]]></Name>
-					<X>50</X><Y>250</Y>
+					<X>280</X><Y>220</Y>
 					<Label><X>0</X><Y>-10</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>false</ShowLabel>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-					<BasicProperties Width="100" Height="30">
+					<BasicProperties Width="208.91089108910893" Height="30">
                         <EmbeddedIcon>false</EmbeddedIcon>	
 						<Enabled>true</Enabled>
 					</BasicProperties>
@@ -17252,6 +17318,201 @@ getExperimentHost().setPresentable( getEngine().getRoot() );]]></ActionCode>
 						<LinkTo>false</LinkTo>
 					</ExtendedProperties>
 				</Control>
+				<Text>
+					<Id>1695904415176</Id>
+					<Name><![CDATA[text1]]></Name>
+					<X>280</X><Y>180</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[min]]></Text>
+					<TextCode><![CDATA[numberOfPeople.getMin()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904415189</Id>
+					<Name><![CDATA[text2]]></Name>
+					<X>488.911</X><Y>180</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[max]]></Text>
+					<TextCode><![CDATA[numberOfPeople.getMax()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904415199</Id>
+					<Name><![CDATA[text3]]></Name>
+					<X>384.455</X><Y>180</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[value]]></Text>
+					<TextCode><![CDATA[numberOfPeople.getValue()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904555389</Id>
+					<Name><![CDATA[text4]]></Name>
+					<X>50</X><Y>100</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Fahrzeugart:]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904616632</Id>
+					<Name><![CDATA[text5]]></Name>
+					<X>50</X><Y>160</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Passagieraufkommen:]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904662988</Id>
+					<Name><![CDATA[text6]]></Name>
+					<X>50</X><Y>230</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Fahrteninterval:]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>16</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904696282</Id>
+					<Name><![CDATA[text7]]></Name>
+					<X>280</X><Y>250</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[min]]></Text>
+					<TextCode><![CDATA[intervalSlider.getMin()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904696284</Id>
+					<Name><![CDATA[text8]]></Name>
+					<X>488.911</X><Y>250</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[max]]></Text>
+					<TextCode><![CDATA[intervalSlider.getMax()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
+				<Text>
+					<Id>1695904696286</Id>
+					<Name><![CDATA[text9]]></Name>
+					<X>384.455</X><Y>250</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[value]]></Text>
+					<TextCode><![CDATA[intervalSlider.getValue()]]></TextCode>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>CENTER</Alignment>
+				</Text>
 			</Presentation>
 
 			<Parameters>			
@@ -17307,6 +17568,12 @@ getExperimentHost().setPresentable( getEngine().getRoot() );]]></ActionCode>
 					<ParameterName><![CDATA[tramInterval]]></ParameterName>
 					<ParameterValue Class="CodeValue">
 						<Code><![CDATA[intervalSlider.getIntValue();]]></Code>
+					</ParameterValue>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[preBoardingDebuff]]></ParameterName>
+					<ParameterValue Class="CodeValue">
+						<Code><![CDATA[1-((60/intervalSlider.getIntValue())*0.02)]]></Code>
 					</ParameterValue>
 				</Parameter>
 			</Parameters>			

@@ -2191,6 +2191,7 @@ agent.tempEnergy = 0;
 
 numberOfStops += 1;
 occupiedPercentage += (double) (agent.passenger)/ (double)(agent.maxPassenger);
+traceln("||||||occupied percntage:" + ((double) (agent.passenger)/ (double)(agent.maxPassenger)));
 
 if(leavingPassengers <= agent.passenger) {
 	passengersTransported += leavingPassengers;
@@ -2708,12 +2709,15 @@ return sum/stationList.size();]]></Body>
 							<Value Class="CodeValue">
 								<Code><![CDATA[agent.setType(selectedVehicle);
 
+int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
+
+
 double passengerPreBoarding = passengersPerHour*0.011;
 
 agent.passenger = (int) triangular(passengerPreBoarding * 0.9, passengerPreBoarding*1.1, passengerPreBoarding);
+if (agent.passenger > agent.maxPassenger) {agent.passenger = agent.maxPassenger;}
 
-int leavingPassengersAvg = (int) (workloadUni*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
 
 agent.onDrive(400);
 agent.onSlowdown();
@@ -3801,12 +3805,15 @@ traceln("_________________________________________train arrived total energy= "+
 							<Value Class="CodeValue">
 								<Code><![CDATA[agent.setType(selectedVehicle);
 
+int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
+int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg));
+
+
 double passengerPreBoarding = passengersPerHour*0.011;
 
 agent.passenger = (int) triangular(passengerPreBoarding * 0.9, passengerPreBoarding*1.1, passengerPreBoarding);
+if (agent.passenger > agent.maxPassenger) {agent.passenger = agent.maxPassenger;}
 
-int leavingPassengersAvg = (int) (workloadDez*((passengersPerHour/8)/(60/tramInterval))*leavingDebuff);
-int leavingPassengers = (int)(triangular(leavingPassengersAvg*(1-leavingVariation),leavingPassengersAvg,leavingPassengersAvg*(1+leavingVariation)));
 
 agent.onDrive(400);
 agent.onSlowdown();
@@ -17238,7 +17245,7 @@ traceln("updated type " + newType);]]></Body>
 						<DefaultValueCode><![CDATA[2500]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
 						<MinValue><![CDATA[1000]]></MinValue>
-						<MaxValue><![CDATA[10000]]></MaxValue>
+						<MaxValue><![CDATA[50000]]></MaxValue>
 						<Step><![CDATA[250]]></Step>
 						<LinkTo>false</LinkTo>
 					</ExtendedProperties>
