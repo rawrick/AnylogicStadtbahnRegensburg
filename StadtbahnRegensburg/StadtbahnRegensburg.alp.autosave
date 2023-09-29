@@ -264,6 +264,18 @@
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1696013054849</Id>
+					<Name><![CDATA[totalPassengerDistanceDriven]]></Name>
+					<X>1340</X><Y>460</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+					</Properties>
+				</Variable>
 				<Variable Class="Parameter">
 					<Id>1695309256230</Id>
 					<Name><![CDATA[workloadUni]]></Name>
@@ -2182,7 +2194,9 @@
 						<Name><![CDATA[leavingPassengers]]></Name>
 						<Type><![CDATA[int]]></Type>
 					</Parameter>
-					<Body><![CDATA[distanceDriven += agent.getDistanceDriven();
+					<Body><![CDATA[totalPassengerDistanceDriven += agent.getDistanceDriven() * agent.passenger;
+
+distanceDriven += agent.getDistanceDriven();
 traceln("Totel Distance: " + distanceDriven + " (+" + agent.getDistanceDriven() + ")");
 agent.resetDistanceDriven();
 
@@ -17242,11 +17256,11 @@ traceln("updated type " + newType);]]></Body>
 						<Enabled>true</Enabled>
 					</BasicProperties>
 					<ExtendedProperties>
-						<DefaultValueCode><![CDATA[2500]]></DefaultValueCode>
+						<DefaultValueCode><![CDATA[3000]]></DefaultValueCode>
 						<Orientation>HORIZONTAL</Orientation>
 						<MinValue><![CDATA[1000]]></MinValue>
-						<MaxValue><![CDATA[50000]]></MaxValue>
-						<Step><![CDATA[250]]></Step>
+						<MaxValue><![CDATA[25000]]></MaxValue>
+						<Step><![CDATA[500]]></Step>
 						<LinkTo>false</LinkTo>
 					</ExtendedProperties>
 				</Control>
