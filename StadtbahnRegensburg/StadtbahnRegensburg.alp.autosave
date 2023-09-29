@@ -16801,7 +16801,7 @@ traceln("Train capacity:" + agent.passenger + " || " + agent.maxPassenger);]]></
 					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
 						<Type><![CDATA[double]]></Type>        
 						<InitialValue Class="CodeValue">
-							<Code><![CDATA[0.6]]></Code>
+							<Code><![CDATA[0.4]]></Code>
 						</InitialValue>
 					</Properties>
 				</Variable>
